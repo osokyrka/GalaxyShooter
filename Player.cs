@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private AudioClip _laserShot;
     private AudioSource _audioSource;
+    private GameManager _gameManager;
     
 
 
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
     void Start()
     {
 
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _audioSource = GetComponent<AudioSource>();
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         _shield.gameObject.SetActive(false);
@@ -141,6 +143,8 @@ public class Player : MonoBehaviour
                 _fireLeft.gameObject.SetActive(false);
                 _fireRight.gameObject.SetActive(false);
                 Destroy(this.gameObject);
+                _gameManager.GameOver();
+                _uiManager.UpdateBestScore();
             }
         }
         else
