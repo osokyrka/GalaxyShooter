@@ -1,2 +1,2 @@
 # GalaxyShooter
-simple 2d galaxy shooter game
+simple 2.5d galaxy shooter game
